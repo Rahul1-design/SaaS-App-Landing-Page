@@ -2,6 +2,20 @@ import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Link as LinkScroll } from 'react-scroll';
 
+const NavLink = ({ title, onClick }) => (
+  <LinkScroll
+    to={title}
+    onClick={onClick}
+    spy
+    smooth
+    offset={-100}
+    activeClass="nav-active"
+    className="base-bold text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h5"
+  >
+    {title}
+  </LinkScroll>
+);
+
 const Header = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -17,20 +31,6 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const NavLink = ({ title }) => (
-    <LinkScroll
-      onClick={() => setIsOpen(false)}
-      to={title}
-      spy
-      smooth
-      offset={-100}
-      activeClass="nav-active"
-      className="base-bold text-p4 uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h5"
-    >
-      {title}
-    </LinkScroll>
-  );
 
   return (
     <header
@@ -54,9 +54,9 @@ const Header = () => {
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
               <ul className="flex max-lg:block max-lg:px-12">
                 <li className="nav-li">
-                  <NavLink title="features" />
+                  <NavLink onClick={() => setIsOpen(false)} title="features" />
                   <div className="dot" />
-                  <NavLink title="pricing" />
+                  <NavLink onClick={() => setIsOpen(false)} title="pricing" />
                 </li>
 
                 <li className="nav-logo">
@@ -79,9 +79,9 @@ const Header = () => {
                 </li>
 
                 <li className="nav-li">
-                  <NavLink title="faq" />
+                  <NavLink onClick={() => setIsOpen(false)} title="faq" />
                   <div className="dot" />
-                  <NavLink title="download" />
+                  <NavLink onClick={() => setIsOpen(false)} title="download" />
                 </li>
               </ul>
             </nav>
