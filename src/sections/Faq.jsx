@@ -13,7 +13,7 @@ const Faq = () => {
               Curiosity didn't kill the cat, it gave it answers.
             </h3>
             <p className="body-1 max-lg:max-w-sm">
-              You've got questions, we've got questions, we've got answers.
+              You've got questions, we've got answers.
             </p>
           </div>
 
